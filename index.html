@@ -96,18 +96,22 @@
       }
 
       .contact-btn {
-        background: #000;
-        color: white;
-        padding: 12px 24px;
+        padding: 12px 20px;
         border-radius: 25px;
+        background-color: #111;
+        color: white;
+        display: flex;
+        font-size: 18px;
         text-decoration: none;
-        font-weight: 500;
-        transition: all 0.3s ease;
+        transition: all 0.6s ease;
       }
 
       .contact-btn:hover {
-        background: #333;
+        background-color: white;
+        color: #111;
+        cursor: pointer;
         transform: translateY(-2px);
+        border: 1px solid;
       }
 
       /* ============= */
@@ -311,6 +315,11 @@
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         position: relative;
         overflow: hidden;
+      }
+      .portfolio-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 
       .portfolio-image::before {
@@ -531,6 +540,9 @@
       /* RESPONSIVE */
       /* ============= */
       @media (max-width: 768px) {
+        body {
+          overflow-x: hidden;
+        }
         .nav-container {
           padding: 0 20px;
         }
@@ -564,6 +576,149 @@
           font-size: 36px;
         }
       }
+      /* ====================== */
+      /* GLOBAL STYLES & RESETS */
+      /* ====================== */
+      html,
+      body {
+        width: 100%;
+        overflow-x: hidden;
+      }
+
+      /* ============= */
+      /* HEADER STYLES */
+      /* ============= */
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+        color: #000;
+      }
+
+      /* ============= */
+      /* HERO SECTION */
+      /* ============= */
+      .hero-content h1 {
+        word-break: break-word;
+      }
+
+      /* ============= */
+      /* RESPONSIVE */
+      /* ============= */
+      @media (max-width: 1024px) {
+        .hero-content h1 {
+          font-size: 72px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          overflow-x: hidden;
+        }
+        .logo {
+          display: none;
+        }
+
+        .nav-container {
+          padding: 0 20px;
+        }
+
+        .nav-links {
+          display: none;
+          position: fixed;
+          top: 80px;
+          left: 0;
+          width: 100%;
+          background: white;
+          flex-direction: column;
+          padding: 20px;
+          gap: 15px;
+          border-bottom: 1px solid #eee;
+          transform: translateY(-150%);
+          transition: transform 0.3s ease;
+        }
+
+        .nav-links.active {
+          display: flex;
+          transform: translateY(0);
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .container {
+          padding: 0 20px;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-content h1 {
+          font-size: 48px;
+          padding: 0 20px;
+        }
+
+        .hero-content .subtitle {
+          padding: 0 20px;
+        }
+
+        .section-title {
+          font-size: 36px;
+        }
+
+        .about-text h2 {
+          font-size: 36px;
+        }
+
+        .about-image img {
+          height: auto;
+        }
+
+        .portfolio-item {
+          margin-bottom: 30px;
+        }
+
+        .tech-grid {
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+      }
+
+      @media (max-width: 480px) {
+        .logo {
+          display: none;
+        }
+        .hero-content h1 {
+          font-size: 36px;
+        }
+
+        .contact-btn {
+          padding: 10px 18px;
+          font-size: 14px;
+        }
+
+        .skill-card {
+          padding: 30px 20px;
+        }
+
+        .tech-item {
+          padding: 20px 15px;
+        }
+
+        .tech-logo {
+          width: 50px;
+          height: 50px;
+          font-size: 20px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -571,6 +726,9 @@
 
     <header>
       <nav class="nav-container">
+        <button class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
         <a href="#" class="logo">Abdullah</a>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
@@ -688,19 +846,24 @@
         </div>
       </div>
     </section>
+    <!-- projects -->
 
     <section class="portfolio" id="portfolio">
       <div class="container">
         <h2 class="section-title">Featured Projects</h2>
         <div class="portfolio-grid">
           <div class="portfolio-item">
-            <div class="portfolio-image"></div>
+            <a href="https://sdcswat.com/">
+              <div class="portfolio-image">
+                <img src="assets/media/shifa.png" alt="" />
+              </div>
+            </a>
             <div class="portfolio-content">
-              <h3>E-Commerce Platform</h3>
+              <h3>Shifa a medical-lab</h3>
               <p>
-                A full-stack e-commerce solution built with React, Node.js, and
-                PostgreSQL. Features include user authentication, payment
-                processing, and admin dashboard.
+                A modern medical laboratory website featuring test booking,
+                report access, and user-friendly information layout. Designed
+                for a seamless healthcare experience.
               </p>
               <div class="portfolio-tags">
                 <span class="tag">React</span>
@@ -710,14 +873,19 @@
               </div>
             </div>
           </div>
+
           <div class="portfolio-item">
-            <div class="portfolio-image"></div>
+            <a href="https://envmedllc.com/en">
+              <div class="portfolio-image">
+                <img src="assets/media/envision.png" alt="" />
+              </div>
+            </a>
             <div class="portfolio-content">
-              <h3>Task Management App</h3>
+              <h3>Envision Medical LLC</h3>
               <p>
-                A collaborative task management application with real-time
-                updates, drag-and-drop functionality, and team collaboration
-                features.
+                A professional healthcare company website highlighting services,
+                products, and mission with a clean, responsive layout tailored
+                for medical audiences.
               </p>
               <div class="portfolio-tags">
                 <span class="tag">Vue.js</span>
@@ -727,13 +895,19 @@
               </div>
             </div>
           </div>
+
           <div class="portfolio-item">
-            <div class="portfolio-image"></div>
+            <a href="https://ittifaqnetwork.com/">
+              <div class="portfolio-image">
+                <img src="assets/media/cosm.png" alt="" />
+              </div>
+            </a>
             <div class="portfolio-content">
-              <h3>Weather Dashboard</h3>
+              <h3>3M3F Cosmetics</h3>
               <p>
-                A responsive weather dashboard with location-based forecasts,
-                interactive charts, and customizable widgets.
+                A sleek e-commerce site for a cosmetics brand with product
+                showcases, category filtering, and mobile-friendly design for a
+                smooth shopping experience.
               </p>
               <div class="portfolio-tags">
                 <span class="tag">JavaScript</span>
@@ -743,13 +917,19 @@
               </div>
             </div>
           </div>
+
           <div class="portfolio-item">
-            <div class="portfolio-image"></div>
+            <a href="https://northin.pk/">
+              <div class="portfolio-image">
+                <img src="assets/media/swat place.png" alt="" />
+              </div>
+            </a>
             <div class="portfolio-content">
-              <h3>Portfolio Website</h3>
+              <h3>Swat Palace Hotel</h3>
               <p>
-                A modern, animated portfolio website showcasing creative design
-                and smooth interactions built with vanilla JavaScript.
+                A luxury hotel website featuring elegant design, room booking
+                options, image galleries, and location-based info for travelers
+                visiting Swat.
               </p>
               <div class="portfolio-tags">
                 <span class="tag">HTML5</span>
@@ -892,11 +1072,13 @@
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-linkedin"></i></a>
             <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fas fa-envelope"></i></a>
+            <a href="https://wa.me/923499265828" target="_blank"
+              ><i class="fas fa-envelope"></i
+            ></a>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2024 Alex Chen. All rights reserved.</p>
+          <p>&copy; 2025 Abdullah. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -1033,6 +1215,20 @@
         } else {
           header.style.boxShadow = "none";
         }
+      });
+      // Mobile menu toggle
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Close menu when clicking on a link
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
       });
 
       // Mobile menu toggle (would need to be added to HTML)
